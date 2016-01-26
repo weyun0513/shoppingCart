@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/23 ?W?? 03:10:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="proj.basic.loginRecord.model.LoginRecordVO" table="LOGINRECORDVO">
+        <id name="memberID" type="java.lang.Integer">
+            <column name="MEMBERID" />
+            <generator class="assigned" />
+        </id>
+        <property name="ip" type="java.lang.String">
+            <column name="IP" />
+        </property>
+        <property name="account" type="java.lang.String">
+            <column name="ACCOUNT" />
+        </property>
+        <property name="loginTime" type="java.sql.Timestamp">
+            <column name="LOGINTIME" />
+        </property>
+        <property name="loginMsg" type="java.lang.String">
+            <column name="LOGINMSG" />
+        </property>
+    </class>
+</hibernate-mapping>

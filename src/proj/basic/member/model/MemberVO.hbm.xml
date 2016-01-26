@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/23 ?W?? 03:10:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="proj.basic.member.model.MemberVO" table="MEMBERVO">
+        <id name="memberID" type="java.lang.Integer">
+            <column name="MEMBERID" />
+            <generator class="assigned" />
+        </id>
+        <property name="chineseName" type="java.lang.String">
+            <column name="CHINESENAME" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" />
+        </property>
+        <property name="birthday" type="java.sql.Date">
+            <column name="BIRTHDAY" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="account" type="java.lang.String">
+            <column name="ACCOUNT" />
+        </property>
+        <property name="pwd" type="java.lang.String">
+            <column name="PWD" />
+        </property>
+        <property name="addr" type="java.lang.String">
+            <column name="ADDR" />
+        </property>
+        <property name="registDate" type="java.sql.Date">
+            <column name="REGISTDATE" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="PHONE" />
+        </property>
+        <property name="bonus" type="java.lang.Integer">
+            <column name="BONUS" />
+        </property>
+        <property name="deposit" type="java.lang.Integer">
+            <column name="DEPOSIT" />
+        </property>
+        <primitive-array name="photo" table="MEMBERVO">
+            <key>
+                <column name="MEMBERID" />
+            </key>
+            <index></index>
+            <element type="byte">
+                <column name="PHOTO" />
+            </element>
+        </primitive-array>
+        <property name="isBlock" type="java.lang.Integer">
+            <column name="ISBLOCK" />
+        </property>
+        <property name="wrongtimes" type="java.lang.Integer">
+            <column name="WRONGTIMES" />
+        </property>
+    </class>
+</hibernate-mapping>

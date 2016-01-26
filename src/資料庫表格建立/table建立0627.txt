@@ -1,0 +1,117 @@
+use proj
+
+drop table loginRecord;
+drop table blacklist;
+drop table orderdetail;
+drop table orderlist;
+drop table itemmedia;
+drop table item;
+drop table itemclass;
+drop table member;
+
+/*會員*/
+create table member(
+ MemberID int identity primary key, /*會員編號*/
+ ChineseName nvarchar(15), /*中文姓名*/
+ Gender nvarchar(1), /*性別*/
+ Birthday  datetime, /*生日*/
+ Email varchar(50), /*email*/
+ Account varchar(100) unique not null, /*帳號*/
+ Pwd varchar(20), /*密碼*/
+ Addr nvarchar(50), /*地址*/
+ RegistDate datetime, /*註冊日期*/
+ Phone varchar(10), /*電話*/
+ Bonus int, /*紅利*/
+ Deposit int, /*儲值金*/
+ Photo varbinary(MAX),/*不確定大小要多少*/
+ isBlock int,/*黑名單狀態1.無鎖定、2.鎖定IP、3.鎖定帳號*/
+ wrongtimes int,/*錯誤次數*/ 
+ constraint gender check (gender in('男','女')),
+ constraint block check (isBlock in('1','2','3')),
+);
+
+
+/*類別*/
+create table itemclass(
+itemclassno tinyint identity primary key, /*商品類別編號(父類別名稱)*/
+classname nvarchar(7), /*類別名稱*/
+classstatus tinyint, /*類別狀態*/
+fatherClassno tinyint /*父類別代號*/
+)
+
+/*商品*/
+create table item(
+itemclassno tinyint not null, /*商品類別編號*/
+itemno int identity primary key, /*商品編號*/
+itemname nvarchar(30) not null, /*商品名稱*/
+price float not null, /*商品價格*/
+discount float, /*商品折扣*/
+onsaletime datetime not null, /*上架時間*/
+offsaletime datetime not null, /*下架時間*/
+itemdscrp nvarchar(1000), /*商品文字說明*/
+itemsQty int, /*商品庫存量*/
+itemstatus tinyint, /*商品狀態*/
+FOREIGN KEY (itemclassno) REFERENCES itemclass(itemclassno)
+)
+
+/*商品影音圖片檔*/
+create table itemmedia(
+itemno int, /*商品編號*/
+itemmediano int, /*編號, 表商品第n個多媒體檔*/
+itemmedia varbinary(max),/*商品說明多媒體檔*/
+FOREIGN KEY (itemno) REFERENCES item(itemno),
+primary key (itemno,itemmediano)
+)
+
+/*訂單主檔*/
+create table orderlist(
+ MemberID int, /*會員編號*/
+ OrderNo int identity primary key , /*訂單編號*/
+ OrderDate datetime, /*訂購日期*/
+ TotlePrice int, /*訂單總金額*//*是否包含運費?*/
+ InvoiceIncNo varchar(8), /*統一編號*/
+ InvoiceTitle nvarchar(15), /*發票抬頭*/
+ ShipppingAddr nvarchar(50), /*送貨地址*/
+ ShipppingRate float, /*運費*/
+ PayWay varchar(5), /*付款方式*/
+ ShippingDate datetime, /*出貨日期*/
+ ReceiveDate datetime, /*簽收日期*/
+ OrdersSatus varchar(4), /*訂單狀態*/
+ InvoiceNo varchar(10), /*發票編號*/
+ constraint PayWay check (PayWay in('ATM','creditcard')),
+ constraint OrdersSatus check (OrdersSatus in('process','shipping','arrival')),
+ FOREIGN KEY (MemberID) REFERENCES member(MemberID)
+);
+
+/*訂單明細*/
+create table orderdetail(
+ OrderNo int , /*訂單編號*/
+ ItemNo int,  /*商品編號*/
+ ItemName nvarchar(30), /*商品名稱*/
+ ItemPrice float, /*商品價格*/
+ Discount float, /*商品折扣*/
+ Quantity int, /*購買數量*/
+ FOREIGN KEY (orderno) REFERENCES orderlist(orderno),
+ FOREIGN KEY (itemno) REFERENCES item(itemno),
+ primary key ( OrderNo,ItemNo)  
+);
+
+/*黑名單 BlackList*/
+create table BlackList(
+ MemberID int, /*會員編號*/ 
+ Account varchar(20), /*帳號*/
+ IP nvarchar(30), /*IPAddress*/
+ unLockTime  time,/*鎖定時間*/
+ FOREIGN KEY (MemberID) REFERENCES member(MemberID)
+);
+
+/*登入紀錄檔(LoginRecord)*/
+create table loginRecord(
+MemberID int primary key, /*會員編號*/ 
+ip varchar(30), /*IPAddress*/
+account varchar(20),  /*帳號*/
+loginTime datetime, /*登入時間*/
+loginMsg varchar(300),/*登入系統的訊息*/
+FOREIGN KEY (MemberID) REFERENCES member(MemberID)
+)
+

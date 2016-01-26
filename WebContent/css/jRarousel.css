@@ -1,0 +1,31 @@
+/* http://ryrych.github.io/rcarousel/ */
+#carousel {
+	margin: 0 auto;
+}
+
+#carousel img {
+	border: 0;
+}
+
+#ui-carousel-next,#ui-carousel-prev {
+	width: 100px;
+	height: 100px;
+	background: url(images/arrow-left.png) #fff center center no-repeat;
+	display: block;
+	position: absolute;
+	top: 0;
+	z-index: 100;
+}
+
+#ui-carousel-next {
+	right: 0;
+	background-image: url(images/arrow-right.png);
+}
+
+#ui-carousel-prev {
+	left: 0;
+}
+
+#ui-carousel-next>span,#ui-carousel-prev>span {
+	display: none;
+}

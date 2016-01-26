@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context displayName="PROJ00" docBase="PROJ00" path="/Proj00" reloadable="true">
+  <Resource name="jdbc/ProjDB" type="javax.sql.DataSource"
+      username="awsuser" password="mypassword"
+      driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+      url="jdbc:sqlserver://mydbinstance2.c6xtnvv67x8b.ap-southeast-1.rds.amazonaws.com:1433;DatabaseName=PROJ"
+      maxActive="3"
+      maxIdle="2"
+      maxWait="5000"
+  />   
+</Context>

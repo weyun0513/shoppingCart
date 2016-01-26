@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/23 ?W?? 03:10:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="proj.basic.orderList.model.OrderListVO" table="ORDERLISTVO">
+        <id name="memberID" type="java.lang.Integer">
+            <column name="MEMBERID" />
+            <generator class="assigned" />
+        </id>
+        <property name="orderNo" type="java.lang.Integer">
+            <column name="ORDERNO" />
+        </property>
+        <property name="orderDate" type="java.sql.Timestamp">
+            <column name="ORDERDATE" />
+        </property>
+        <property name="totalPrice" type="java.lang.Integer">
+            <column name="TOTALPRICE" />
+        </property>
+        <property name="invoiceIncNo" type="java.lang.String">
+            <column name="INVOICEINCNO" />
+        </property>
+        <property name="invoiceTitle" type="java.lang.String">
+            <column name="INVOICETITLE" />
+        </property>
+        <property name="shippingAddr" type="java.lang.String">
+            <column name="SHIPPINGADDR" />
+        </property>
+        <property name="shippingRate" type="java.lang.Double">
+            <column name="SHIPPINGRATE" />
+        </property>
+        <property name="payWay" type="java.lang.String">
+            <column name="PAYWAY" />
+        </property>
+        <property name="shippingDate" type="java.sql.Date">
+            <column name="SHIPPINGDATE" />
+        </property>
+        <property name="receiveDate" type="java.sql.Date">
+            <column name="RECEIVEDATE" />
+        </property>
+        <property name="orderStatus" type="java.lang.String">
+            <column name="ORDERSTATUS" />
+        </property>
+        <property name="invoiceNo" type="java.lang.String">
+            <column name="INVOICENO" />
+        </property>
+        <property name="useDeposit" type="java.lang.Integer">
+            <column name="USEDEPOSIT" />
+        </property>
+        <property name="useBonus" type="java.lang.Integer">
+            <column name="USEBONUS" />
+        </property>
+        <property name="receiveBonus" type="java.lang.Integer">
+            <column name="RECEIVEBONUS" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>導航——點擊彈出內容</title>
+  <style type="text/css">
+navgation{margin:;padding:;liststyletype:none;position:relative;}
+navgation li {float:left;}
+navgation a{padding:px px;backgroundcolor:orange;color:white;textdecoration:none;float:left;height:px;}
+navgation a:hover {backgroundcolor:white;color:blue;textdecoration:underline;}
+navgation div{display:none;position:absolute;top:px;}
+</style>
+    <script src="Jqueryjs" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document)ready(function () {
+            $("navgation input")each(function () {
+                var this_div = $("navgation div");
+                var _inx = $("navgation input")index(this);
+                $(this)click(
+                function () { this_diveq(_inx)slideToggle(); }
+                function () { this_diveq(_inx)slideToggle(); }
+           );
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="form" runat="server">
+    <div>
+        <ul class="navgation">
+            <li><input type="button" id="button" value="鏈接"/>
+            <div>這裡放下拉內容</div>
+            </li>
+            <li><input type="button" id="button1" value="鏈接"/>
+            <div>這裡放下拉內容</div>
+            </li>
+            <li><input type="button" id="button2" value="鏈接"/>
+            <div>這裡放下拉內容</div>
+            </li>
+            <li><input type="button" id="button3" value="鏈接"/>
+            <div>這裡放下拉內容</div>
+            </li>
+            <li><input type="button" id="button4" value="鏈接"/>
+            <div>這裡放下拉內容</div>
+            </li>
+        </ul>
+    </div>
+    </form>
+</body>
+</html>

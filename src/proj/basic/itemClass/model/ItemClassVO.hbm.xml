@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/23 ?W?? 03:07:39 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="proj.basic.itemClass.model.ItemClassVO" table="ITEMCLASSVO">
+        <id name="itemClassNo" type="java.lang.Integer">
+            <column name="ITEMCLASSNO" />
+            <generator class="assigned" />
+        </id>
+        <property name="className" type="java.lang.String">
+            <column name="CLASSNAME" />
+        </property>
+        <property name="classStatus" type="java.lang.Integer">
+            <column name="CLASSSTATUS" />
+        </property>
+        <property name="fatherClassno" type="java.lang.Integer">
+            <column name="FATHERCLASSNO" />
+        </property>
+    </class>
+</hibernate-mapping>

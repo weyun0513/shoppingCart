@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context displayName="PROJ00" docBase="PROJ00" path="/Proj00" reloadable="true">
+  <Resource name="jdbc/ProjDB" type="javax.sql.DataSource"
+      username="milovex@s0g4vew1di" password="domoto22X"
+      driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+      url="jdbc:sqlserver://s0g4vew1di.database.windows.net:1433;database=ProjDB"
+     encrypt="true" 
+	hostNameInCertificate="*.database.windows.net"
+	loginTimeout="30"
+  /> 
+</Context>

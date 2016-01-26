@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/23 ?W?? 03:10:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="proj.basic.orderDetail.model.OrderDetailVO" table="ORDERDETAILVO">
+        <id name="orderDetailNo" type="java.lang.Integer">
+            <column name="ORDERDETAILNO" />
+            <generator class="assigned" />
+        </id>
+        <property name="orderNo" type="java.lang.Integer">
+            <column name="ORDERNO" />
+        </property>
+        <property name="itemNo" type="java.lang.Integer">
+            <column name="ITEMNO" />
+        </property>
+        <property name="itemName" type="java.lang.String">
+            <column name="ITEMNAME" />
+        </property>
+        <property name="itemPrice" type="java.lang.Double">
+            <column name="ITEMPRICE" />
+        </property>
+        <property name="discount" type="java.lang.Double">
+            <column name="DISCOUNT" />
+        </property>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="QUANTITY" />
+        </property>
+    </class>
+</hibernate-mapping>
